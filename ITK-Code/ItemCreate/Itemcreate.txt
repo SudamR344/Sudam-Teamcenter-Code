@@ -1,0 +1,52 @@
+#include<tc\tc.h>
+#include<tc\emh.h>
+#include<stdio.h>
+#include<conio.h>
+#include<tccore\item.h>
+#include<tccore\aom_prop.h>
+#include<fclasses\tc_string.h>>
+#include<ps\ps.h>
+#include<tccore\workspaceobject.h>
+
+int ITK_user_main(int argc, char *argv[])
+{
+	int z;
+	int Itemid;
+		char ItemName;
+		int revid;
+		 tag_t item;
+		 tag_t rev;
+
+		 z = ITK_init_module("infodba", "infodba", "dba");
+	
+	
+		if (z == ITK_ok)
+		{
+			printf("login ok");
+		}
+		else
+		{
+			printf("Error");
+		}
+		ITEM_create_item("2222", "sudam", "Item", "A", &item, &rev);
+
+		if (z == ITK_ok)
+		{
+			printf("item create");
+		}
+		else
+		{
+			printf("Error");
+		}
+		ITEM_save_item(item);
+		if (z == ITK_ok)
+		{
+			printf("item save");
+		}
+		else
+		{
+			printf("Error");
+		}
+
+	return 0;
+}
