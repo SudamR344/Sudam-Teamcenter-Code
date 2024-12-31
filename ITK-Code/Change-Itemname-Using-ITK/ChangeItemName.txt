@@ -1,0 +1,87 @@
+#include<tc\tc.h>
+#include<tc\emh.h>
+#include<stdio.h>
+#include<conio.h>
+#include<tccore\item.h>
+#include<tccore\aom_prop.h>
+#include<fclasses\tc_string.h>>
+#include<ps\ps.h>
+#include<tccore\workspaceobject.h>
+#include<bom/bom.h>
+#include<bom/bom_errors.h>
+#include<bom/bom_msg.h>
+#include<itk/te_errors.h>
+#include <ae/vm_errors.h>
+#include <base_utils/Mem.h>
+#include <tcinit/tcinit.h>
+#include <stdlib.h>
+#include <bom/bom.h>
+#include <epm/epm.h>
+#include <pom/pom/pom.h>
+#include <tccore/tctype.h>
+#include <sa/tcvolume.h>
+#include <tc/emh.h>
+#include <tc/tc_util.h>
+#include <pom/enq/enq.h>
+#include <tccore/item.h>
+#include <tccore/grm.h>
+#include <tccore/workspaceobject.h>
+#include <fclasses/tc_stdio.h>
+#include <fclasses/tc_string.h>
+#include <ae/vm_errors.h>
+#include <tccore/item_errors.h>
+#include<sa/sa.h>
+#include <tccore/aom.h>
+
+
+int ITK_user_main(int argc, char *argv[])
+
+
+	
+	{
+	
+	int z;
+	tag_t item;
+
+	z = ITK_init_module("infodba", "infodba", "dba");
+
+	if (z == ITK_ok)
+	{
+		printf("\nlogin");
+	}
+	else
+	{
+		printf("\nFailed");
+	}
+		
+	z = ITEM_find_item("3333",&item);
+	if (z == ITK_ok)
+	{
+		printf("\nfound item");
+	}
+	else
+	{
+		printf("\nFailed");
+	}
+	z = ITEM_set_name(item, "tesssss");
+	if (z == ITK_ok)
+	{
+		printf("\nset name");
+	}
+	else
+	{
+		printf("\nFailed");
+	}
+	z = ITEM_save_item(item);
+	if (z == ITK_ok)
+	{
+		printf("\item saved");
+	}
+	else
+	{
+		printf("\nFailed");
+	}
+
+	return z;
+
+}
