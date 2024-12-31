@@ -1,0 +1,64 @@
+#include<iostream> 
+#include<stdio.h> 
+#include<String.h> 
+#include<tc/tc.h>   //FOR ITK user main 
+#include<itk/te.h>
+#include<tc/folder.h>
+#include<tccore/aom.h>
+//FOR Error handling 
+
+
+int ITK_user_main(int argc, char* argv[])
+{
+	int z;
+	tag_t item, folder;
+
+	z = ITK_init_module("infodba", "infodba", "dba");
+
+	if (z == ITK_ok)
+	{
+		printf("\n Login");
+
+	}
+	else
+	{
+		printf("\n Login Failed");
+
+	}
+
+	z = ITEM_find_item("000024", &item);
+	if (z == ITK_ok)
+	{
+		printf("\n finditem");
+
+	}
+	else
+	{
+		printf("\n not found");
+
+	}
+	z = FL_create2("Sudam", "sample", &folder);
+	if (z == ITK_ok)
+	{
+		printf("\n foldercreate");
+
+	}
+	else
+	{
+		printf("\n save folder");
+
+	}
+	z = AOM_save(folder);
+	if (z == ITK_ok)
+	{
+		printf("\n foldersave");
+
+	}
+	else
+	{
+		printf("\n not saved");
+
+	}
+
+	return z;
+}
